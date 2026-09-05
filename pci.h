@@ -4,4 +4,4 @@
 #include <stdint.h>
 
 // In NovaOS this file is unnecessary, because NovaOS have PCI detect systen
-DWORD pci_config_read_DWORD(BYTE bus, BYTE slot, BYTE func, BYTE offset);
+DWORD pci_config_read_DWORD(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset);

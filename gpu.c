@@ -23,7 +23,6 @@ SOFTWARE.
 */
 
 #include <stdint.h>
-#include "ports.h"
 #include "pci.h"
 
 #include "gpu.h"
@@ -77,7 +76,7 @@ void show_gpu_name()
             if (vendor_id != 0xFFFF)
             {
                 const CHAR* vendor = get_gpu_vendor(vendor_id);
-                const CHAR* name = get_gpu_name
+                const CHAR* name = get_gpu_name(vendor_id, device_id);
                 (
                     vendor_id,
                     device_id
@@ -104,7 +103,7 @@ void show_gpu_info()
             uint16_t vendor_id = data & 0xFFFF;
             uint16_t device_id = (data >> 16) & 0xFFFF;
 
-            const char* gpu_vendor = get_cpu_vendor(vendor_id);
+            const char* gpu_vendor = get_gpu_vendor(vendor_id);
             if (vendor_id != 0xFFFF)
             {
                 Print("Vendor ID: ", 0xFFFFFFFF);
